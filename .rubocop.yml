@@ -1,0 +1,26 @@
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'vendor/bundle/**/*'
+  TargetRubyVersion: 2.5
+
+Metrics/LineLength:
+  Max: 160
+
+Metrics/MethodLength:
+  Max: 30
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
