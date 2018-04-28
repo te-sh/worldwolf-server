@@ -8,7 +8,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     if Rails.env.production?
-      origins 'https://worldwolf.herokuapp.com/rooms'
+      origins 'https://worldwolf.herokuapp.com'
     else
       origins 'http://localhost:4200', %r{\Ahttp://192\.168\.\d+\.\d+:4200}
     end
