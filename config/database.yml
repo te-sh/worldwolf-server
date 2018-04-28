@@ -83,6 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: worldwolf_production
-  username: worldwolf
+  database: d4n52jrf4obpkt
+  username: klncdebuhyzwmg
   password: <%= ENV['WORLDWOLF_DATABASE_PASSWORD'] %>
+  host: ec2-54-243-54-6.compute-1.amazonaws.com
