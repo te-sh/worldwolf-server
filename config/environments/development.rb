@@ -45,5 +45,4 @@ Rails.application.configure do
 
   # ActionCable setting
   config.action_cable.allowed_request_origins = ['http://localhost:4200', %r{http://192\.168\.\d+\.\d+:4200}]
-  # config.action_cable.disable_request_forgery_protection = true
 end
