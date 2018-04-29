@@ -34,6 +34,10 @@ module RoomCable
     run('chat', action: 'finish-game', reason: reason)
   end
 
+  def broadcast_expire
+    run('chat', action: 'expire')
+  end
+
   def run(target, data)
     ActionCable.server.broadcast("room-#{id}", target: target, data: data)
   end

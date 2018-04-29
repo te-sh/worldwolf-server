@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @user.destroy
     session.clear
     head :ok
+  rescue ActiveRecord::RecordNotFoune
+    head :ok
   end
 
   def create
