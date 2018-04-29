@@ -1,0 +1,4 @@
+:schedule:
+  cleanup_room:
+    every: 1m
+    class: CleanupRoom
