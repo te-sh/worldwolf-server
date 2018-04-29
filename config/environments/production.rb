@@ -30,9 +30,9 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Mount Action Cable outside main process or domain
-  # config.action_cable.mount_path = nil
-  # config.action_cable.url = 'wss://example.com/cable'
-  # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
+  config.action_cable.mount_path = nil
+  config.action_cable.url = 'wss://worldwolf-api.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = ['https://worldwolf.herokuapp.com']
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -73,8 +73,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  # ActionCable setting
-  config.action_cable.allowed_request_origins = ['https://worldwolf.herokuapp.com/']
-  config.action_cable.url = 'wss://worldwolf-api.herokuapp.com/cable'
 end
