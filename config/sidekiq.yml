@@ -1,3 +1,5 @@
+:concurrency: 5
+
 :schedule:
   cleanup_room:
     every: 1m
