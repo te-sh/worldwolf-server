@@ -17,6 +17,12 @@ class VotesController < ApplicationController
     end
   end
 
+  def disclose
+    game = Game.find(params[:game_id])
+    game.room.broadcast_votes(game.votes)
+    head :ok
+  end
+
   private
 
   def select_or_create

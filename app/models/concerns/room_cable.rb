@@ -34,6 +34,16 @@ module RoomCable
     run('chat', action: 'finish-game', reason: reason)
   end
 
+  def broadcast_game(game)
+    broadcast
+    run('chat', action: 'game', game: game.as_json(Game::JSON_DETAIL))
+  end
+
+  def broadcast_votes(votes)
+    broadcast
+    run('chat', action: 'votes', votes: votes.as_json(Vote::JSON))
+  end
+
   def broadcast_expire
     run('chat', action: 'expire')
   end

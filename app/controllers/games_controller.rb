@@ -34,6 +34,11 @@ class GamesController < ApplicationController
     head :ok
   end
 
+  def disclose
+    game = Game.find(params[:id])
+    game.room.broadcast_game(game)
+  end
+
   private
 
   def create_params
