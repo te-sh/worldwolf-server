@@ -17,6 +17,10 @@ class Game < ApplicationRecord
   validates :wolf_word, presence: true, on: :update
 
   JSON = { only: %i[id creator] }
+  JSON_DETAIL = {
+    only: %i[id normal_word wolf_word],
+    include: { wolves: { only: %i[id name] } }
+  }
 
   def playing
     normal_word.present? && wolf_word.present?

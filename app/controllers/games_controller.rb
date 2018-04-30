@@ -1,4 +1,11 @@
 class GamesController < ApplicationController
+  def show
+    game = Game.find(params[:id])
+    raise Forbidden unless game.creator == @user
+
+    render json: game.as_json(Game::JSON_DETAIL)
+  end
+
   def create
     game = Game.new(create_params)
     raise Forbidden unless game.creator == @user || !@user.active || @user.room.game

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :games, only: %i[create update destroy]
+  resources :games, only: %i[show create update destroy]
   resources :votes, only: %i[index create]
 
   mount ActionCable.server => '/cable'
