@@ -49,9 +49,11 @@ ActiveRecord::Schema.define(version: 2018_04_27_172732) do
     t.string "name"
     t.uuid "room_id"
     t.boolean "active", default: false
+    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_users_on_room_id"
+    t.index ["token"], name: "index_users_on_token", unique: true
   end
 
   create_table "votes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

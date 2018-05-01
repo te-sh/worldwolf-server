@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
     if user
       session[:user] = user.id
-      render json: user.as_json(User::JSON)
+      render json: user.as_json(User::JSON_TOKEN)
     else
       head :bad_request
     end

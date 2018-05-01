@@ -4,8 +4,10 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string     :name
       t.references :room, type: :uuid
       t.boolean    :active, default: false
+      t.string     :token
 
       t.timestamps
     end
+    add_index :users, :token, unique: true
   end
 end

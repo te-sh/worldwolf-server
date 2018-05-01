@@ -1,13 +1,15 @@
 class ApplicationController < ActionController::API
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+
   before_action :set_user
 
   rescue_from Forbidden, with: :forbidden
 
   def set_user
-    throw :abort unless session[:user]
-    @user = User.find(session[:user])
-  rescue ActiveRecord::RecordNotFound
-    throw :abort
+    authenticate_or_request_with_http_token do |token, _options|
+      @user = User.find_by(token: token)
+      @user.present?
+    end
   end
 
   def forbidden

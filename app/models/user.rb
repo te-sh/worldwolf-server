@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   include UserCable
 
+  has_secure_token
+
   after_create_commit :created
   after_update_commit :updated
   after_destroy_commit :destroyed
@@ -10,6 +12,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 8 }
 
   JSON = { only: %i[id name] }
+  JSON_TOKEN = { only: %i[id name token] }
 
   class << self
     def create_with_pass(room_id, name, pass)
