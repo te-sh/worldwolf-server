@@ -34,6 +34,12 @@ class GamesController < ApplicationController
     head :ok
   end
 
+  def word
+    game = Game.find(params[:id])
+    word = game.wolves.include?(@user) ? game.wolf_word : game.normal_word
+    render json: { word: word }
+  end
+
   def disclose
     game = Game.find(params[:id])
     game.room.broadcast_game(game)
