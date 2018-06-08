@@ -10,7 +10,7 @@ class Room < ApplicationRecord
   JSON_DETAIL = {
     only: %i[id name], include: {
       users: { only: %i[id name active] },
-      game: { only: %i[id creator_id], methods: :playing }
+      game: { only: %i[id creator_id updated_at], methods: :playing }
     }
   }
 
