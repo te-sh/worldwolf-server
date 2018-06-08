@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :rooms, only: %i[index show]
 
-  resources :users, only: %i[create update] do
+  resources :users, only: %i[create update destroy] do
     collection do
       get :mine, action: :show_mine
       delete :mine, action: :destroy_mine
