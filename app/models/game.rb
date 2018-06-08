@@ -15,6 +15,7 @@ class Game < ApplicationRecord
   validates :creator, presence: true
   validates :normal_word, presence: true, on: :update
   validates :wolf_word, presence: true, on: :update
+  validates :wolves, presence: true, on: :update
 
   JSON = { only: %i[id creator] }
   JSON_DETAIL = {
